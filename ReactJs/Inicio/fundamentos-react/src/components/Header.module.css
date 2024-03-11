@@ -1,0 +1,7 @@
+.header {
+  background: #333;
+  height: 80px;
+}
+/* o .module deixa o css como um objeto sendo possivel possivel herdar o objeto css em varias aplicações 
+uma forma de isolar o css
+*/

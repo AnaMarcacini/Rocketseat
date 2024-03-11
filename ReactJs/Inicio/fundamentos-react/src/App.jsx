@@ -1,6 +1,9 @@
 import PostPrincipal from './Post' // Default Exports 
 import { Post2 } from './Post2' // Named Exports 
+import { Header } from './components/Header';
 // todos os componetnes possuem extenção jsx = JavaScript + XML // tem html interno
+import './global.css';
+
 export function App() {
 
   return (
@@ -9,6 +12,7 @@ export function App() {
     // no react ele não deixa ter varios componentes um a baixo do outro se não tiver um elemento por volta deles
 
     <div>
+      <Header/>
       <h1>Olá Mundo</h1>
       <PostPrincipal/>
       <Post2 autor = "Ana" conteudo ="Escrever 'lorem ' no vcode gera o texto automatico Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dicta temporibus deserunt soluta magni iusto. Nobis nam odit culpa, nihil voluptatum quaerat reprehenderit sit ratione reiciendis maxime vero, esse neque. "/>
