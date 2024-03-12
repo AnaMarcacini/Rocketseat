@@ -15,6 +15,8 @@
   --gray-900: #121214;
 
   --green-500: #00875f;
+  --red-500: #F75A68;
+
 }
 
 * {
@@ -37,4 +39,12 @@ body, input, textarea, button {
   font-weight: 400;
   font-size: 1rem; 
   /* uma unidade relativa --> porcentagem do tamanho da fonte padrão */
+}
+
+
+:focus {
+  /* seleção de elementos (com o tab)
+  */
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green-500);
 }

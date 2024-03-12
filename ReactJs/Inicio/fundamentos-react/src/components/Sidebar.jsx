@@ -1,3 +1,4 @@
+import { Avatar } from './Avatar';
 import { PencilLine } from 'phosphor-react' // importando o icone de lápis (PencilLine)
 //  npm i phosphor-react // biblioteca de icones
 import styles from './Sidebar.module.css';
@@ -11,7 +12,8 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <img className={styles.avatar} src="https://github.com/diego3g.png" />
+        {/* <img className={styles.avatar} src="https://github.com/diego3g.png" /> */}
+        <Avatar src="https://github.com/diego3g.png" />
 
         <strong>Diego Fernandes</strong>
         <span>Web Developer</span>

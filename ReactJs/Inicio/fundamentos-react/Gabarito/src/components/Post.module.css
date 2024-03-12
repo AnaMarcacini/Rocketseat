@@ -5,9 +5,6 @@
 }
 
 .post + .post {
-  /* antes + depois */
-  /* todo post que antes dele tenha um post 
-  Ou seja a margem vai ficar entre posts e não no primeiro post*/
   margin-top: 2rem;
 }
 
@@ -32,10 +29,6 @@
 }
 
 .post > header {
-  /* 
-  .post header - todos os headers dentro do post (conta filho de filho)
-  .post > header - todos os headers filhos diretos de posts (não conta filho de filho)
-    */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -90,7 +83,15 @@
   margin-top: 1rem;
 }
 
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+}
 
+.commentForm:focus-within footer {
+  visibility: visible;
+  max-height: none;
+}
 
 .commentForm button[type="submit"] {
   padding: 1rem 1.5rem;
@@ -103,30 +104,6 @@
   cursor: pointer;
 
   transition: background-color 0.1s;
-
-  /* outra opção para sumir o botão
-  visibility :hidden;
-  max-height: 0;
-  problema é que o botão continua ocupando o espaço dele porém de forma "transparente"
-  */
-
-  /* outra forma 
-  display:none
-  problema de acessibilidade
-  */
-  /* A outra forma foi colocar o botão no footer e sumir com o footer 
-  .commentForm footer*/
-}
-.commentForm footer {
-  /* some o rodape que tem o botão : some o botão */
-  visibility: hidden;
-  max-height: 0;
-}
-
-.commentForm:focus-within footer {
-  /* quando selecionar o formulario de comentario */
-  visibility: visible;
-  max-height: none;
 }
 
 .commentForm button[type="submit"]:hover {
