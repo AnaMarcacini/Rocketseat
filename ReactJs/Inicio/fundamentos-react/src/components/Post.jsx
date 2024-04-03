@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState([
-    'Post muito bacana, hein?!'
+    'Post muito bacana, hein?!👏👏'
 // função para alterar a lista de comentarios --> ele atualiza a variavel e rederiza a tela
   ]);
 
@@ -21,6 +21,11 @@ export function Post({ author, publishedAt, content }) {
   const [newCommentText, setNewCommentText] = useState('');
 
   function handleCrateNewComment() {
+    console.log(event.target)// retorna o gatilho que chamou o evento no caso o envio do formulario 
+
+
+    console.log(event.target.comment) //acessando o elemento do formulario chamado comment name="comment"
+    console.log(event.target.comment.va) // name="comment"
     event.preventDefault()// por padrão quando envia ele redireciona para outra pagina para tirar isso usamos esse comando --> não dar erro
     console.log("enviando um comentario");
     // comments.push(3); //metodo para adicionar comentario "3 " na lista de comentarios --> ineficiente pois não renderiza a tela apos a operação
@@ -100,7 +105,7 @@ export function Post({ author, publishedAt, content }) {
           return (
             <Comment
               // key={comment}
-              // content={comment}
+              content={comment}
               // onDeleteComment={deleteComment}
             />
           )
