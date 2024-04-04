@@ -10,12 +10,9 @@ export const metadata: Metadata = {
 
 export default function outraRotaLayout({  children}: {  children: React.ReactNode}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
         <div>
-          <p>ISSO É UM CABEÇALHO COMUM PARA QUALQUER PAGINA dentro da rota /outra rota</p></div>
+          <p>ISSO É UM CABEÇALHO COMUM PARA QUALQUER PAGINA dentro da rota /outra rota</p>
         {children}
-        </body>
-    </html>
+          </div>
   );
 }
