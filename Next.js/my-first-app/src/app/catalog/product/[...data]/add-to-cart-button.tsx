@@ -5,10 +5,10 @@
 
 // usar useEffect para buscar dados de api e não o await
 
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { Teste } from './teste'
 
-export function AddToCartButton() {
+export function AddToCartButton({children}: {children : ReactNode}) {
   const [count, setCount] = useState(0)
 
   function addToCart() {
@@ -20,5 +20,6 @@ export function AddToCartButton() {
     <div>
       <button onClick={addToCart}>Adicionar ao carrinho {count}</button>
       <Teste/>
+      {children}
     </div>)
 }
