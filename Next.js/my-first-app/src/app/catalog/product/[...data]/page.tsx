@@ -1,4 +1,4 @@
-// 'use client'
+'use client' // 
 
 interface ProductProps {
   params: {
@@ -8,7 +8,7 @@ interface ProductProps {
 
 export default function Product({ params }: ProductProps) {
   const [productId, size, color] = params.data
-  console.log(params) // printa isso no terminal do codigo no servidor e não no inspencionar do chrome
+  console.log(params) // printa isso no terminal se o 'use client' estiver comentado ou seja no servidor e se o 'use client' estiver descomentado isso printa no inspencionar do chrome e também no servidor
 
   function addToCart(){
     console.log("adicionou no carrinho")
