@@ -1,0 +1,28 @@
+sudo npm install -g pnpm
+￼------------------------------------------------------------------------------
+sudo apt install unzip
+curl -fsSL https://bun.sh/install | bash
+
+
+
+anamarcacini in smartcampusmaua-web on  develop
+➜  curl -fsSL https://bun.sh/install | bash
+######################################################################## 100,0%
+bun was installed successfully to ~/.bun/bin/bun
+
+Added "~/.bun/bin" to $PATH in "~/.zshrc"
+
+To get started, run:
+
+  exec /usr/bin/zsh
+  bun --help
+anamarcacini in smartcampusmaua-web on  develop
+➜  bun i
+zsh: command not found: bun
+anamarcacini in smartcampusmaua-web on  develop
+➜  exec /usr/bin/zsh
+
+anamarcacini in smartcampusmaua-web on  develop
+➜  bun i
+bun install v1.0.35 (940448d6)
+  🚚 @next/swc-linux-x64-musl... ^C
