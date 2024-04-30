@@ -11,6 +11,10 @@ const config: Config = {
       sans:"var(--font-inter)" // defino variavel padrão como a font inter
     }
    },
+   gridTemplateRows: {
+    app: 'min-content max-content',
+  },
+   
   plugins: [],
 };
 export default config;
