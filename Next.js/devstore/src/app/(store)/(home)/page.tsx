@@ -34,6 +34,11 @@ async function getFeaturedProducts(): Promise<Product[]> {
  * Se eu mudar de pagina e precisar fazer fetch de todo de novo o Memoization não se aplica. Assim temos que ter um controle de cache
  * 
  */
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title:'Home'
+  
+};
 export default async function Home() {
 
   const [highlightedProduct, ...otherProducts] = await getFeaturedProducts() // a requisição dos dados ocorre no lado do servidor antes dele chegar na pagina || tanto que se desabilitar o javascript do navegador ele continua buscando os dados de forma correta
