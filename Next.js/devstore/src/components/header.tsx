@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import { Search, ShoppingBag } from 'lucide-react' // importanto icones de busca e de loja
+import { Search } from 'lucide-react' // importanto icones de busca e de loja
 import Image from 'next/image'
+import { CartWidget } from './cart-widget'
 
 export function Header() {
   return ( //<div>Headre</div>
-    <div className="flex items-center justify-between"> 
-    {/*  coloca os elementos ocupando toda a extremidade */}
+    <div className="flex items-center justify-between">
+      {/*  coloca os elementos ocupando toda a extremidade */}
       <div className="flex items-center gap-5">
         <Link href="/" className="text-2xl font-extrabold text-white">
           devstore
@@ -35,10 +36,7 @@ export function Header() {
       </div>
 
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <ShoppingBag className="h-4 w-4" />
-          <span className="text-sm">Cart (0)</span>
-        </div>
+        <CartWidget />
 
         <div className="w-px h-4 bg-zinc-700"></div>
         {/* Barra que divide o usuario  do carrinho
