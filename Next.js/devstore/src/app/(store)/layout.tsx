@@ -1,9 +1,11 @@
 import { Header } from '@/components/header'
+import { CartProvider } from '@/contexts/cart-context'
 import { ReactNode } from 'react'
 
 export default function StoreLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="mx-auto grid min-h-screen w-full max-w-[1600px] grid-rows-app gap-5 px-8 py-8">{/* 
+    <CartProvider>
+      <div className="mx-auto grid min-h-screen w-full max-w-[1600px] grid-rows-app gap-5 px-8 py-8">{/* 
       mx-auto: centraliza o conteudo da pagina horizontalmente
       
       
@@ -22,8 +24,10 @@ export default function StoreLayout({ children }: { children: ReactNode }) {
        px-8 py-8 pading horizontal e vertical
       
       */}
-      <Header />
-      {children}
-    </div>
+        <Header />
+        {children} 
+        {/* mesmo o  CartProvider sendo use client os componentes passados por ele vão sem server components por padrão*/}
+      </div>
+    </CartProvider>
   )
 }
