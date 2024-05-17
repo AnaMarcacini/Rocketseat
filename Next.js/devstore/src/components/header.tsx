@@ -3,6 +3,7 @@ import { Search } from 'lucide-react' // importanto icones de busca e de loja
 import Image from 'next/image'
 import { CartWidget } from './cart-widget'
 import { SearchForm } from './search-form'
+import { Suspense } from 'react'
 
 export function Header() {
   return ( //<div>Headre</div>
@@ -12,7 +13,9 @@ export function Header() {
         <Link href="/" className="text-2xl font-extrabold text-white">
           devstore
         </Link>
-  <SearchForm/>
+        <Suspense fallback={null}>
+          <SearchForm />
+        </Suspense>
 
       </div>
 
