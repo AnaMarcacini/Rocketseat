@@ -7,10 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily:{
-      sans:"var(--font-inter)" // defino variavel padrão como a font inter
-    }
-   },
+
+
+    extend: {// assim eu não substituo todas as opções do tailwindcss pelas citadas mas apenas adiciono elas nas opções já existentes
+      fontFamily: {
+        sans: 'var(--font-inter)',// defino variavel padrão como a font inter
+      },
+      gridTemplateRows: {
+        app: 'min-content max-content',
+      },
+    },
+  },
+   
   plugins: [],
 };
 export default config;
