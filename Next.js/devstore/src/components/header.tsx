@@ -12,7 +12,8 @@ export function Header() {
           devstore
         </Link>
 
-        <form className="flex w-[320px] items-center gap-3 rounded-full bg-zinc-900 px-5 py-3 ring-zinc-700">
+        <form action="/search" method='GET' className="flex w-[320px] items-center gap-3 rounded-full bg-zinc-900 px-5 py-3 ring-zinc-700"> 
+        {/*action="/search" method='GET' faz um get na rota search  */}
 
           {/* 
           "flex
