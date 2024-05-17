@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Search } from 'lucide-react' // importanto icones de busca e de loja
 import Image from 'next/image'
 import { CartWidget } from './cart-widget'
+import { SearchForm } from './search-form'
 
 export function Header() {
   return ( //<div>Headre</div>
@@ -11,29 +12,8 @@ export function Header() {
         <Link href="/" className="text-2xl font-extrabold text-white">
           devstore
         </Link>
+  <SearchForm/>
 
-        <form action="/search" method='GET' className="flex w-[320px] items-center gap-3 rounded-full bg-zinc-900 px-5 py-3 ring-zinc-700"> 
-        {/*action="/search" method='GET' faz um get na rota search  */}
-
-          {/* 
-          "flex
-          
-          w-[320px] -with fixo de 320px
-           items-center 
-           gap-3 
-           rounded-full 
-           bg-zinc-900 
-           px-5 py-3 pading lateral e vertical
-           ring-zinc-700 - borda lateral com a cor cinza mais clara
-          
-          */}
-          <Search className="w-5 h-5 text-zinc-500" />
-
-          <input
-            placeholder="Buscar produtos..."
-            className="flex-1 bg-transparent text-sm outline-none placeholder:text-zinc-500"
-          />
-        </form>
       </div>
 
       <div className="flex items-center gap-4">
