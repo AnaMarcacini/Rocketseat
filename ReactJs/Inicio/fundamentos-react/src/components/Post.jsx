@@ -17,7 +17,6 @@ export function Post({ author, publishedAt, content }) {
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
   locale: ptBR,
   });
-
   const [newCommentText, setNewCommentText] = useState('');
 
   function handleCreateNewComment() {
@@ -36,7 +35,10 @@ export function Post({ author, publishedAt, content }) {
     console.log(comments);
 
   }
-
+  function handleNewCommentInvalid(){
+    console.log(event)
+    event.target.setCustomValidity("Esse campo é obrigatório")
+  }
   
   const publishedDateFormattedOld = new Intl.DateTimeFormat('pt-BR',{
     day:'2-digit',
@@ -51,6 +53,8 @@ export function Post({ author, publishedAt, content }) {
     // add suffix - adiciona prefixo em portugues (sufixo em ingles) há x dias cerca de 8 horas etc
   });
   function handleNewCommentChange() {
+    event.target.setCustomValidity("");
+
     setNewCommentText(event.target.value);
   }
   function deleteComment(commentToDelete) {
@@ -63,6 +67,7 @@ export function Post({ author, publishedAt, content }) {
     setComments(commentsWithoutDeletedOne);// imutabilidade -> as variaveis não sofrem mutação, nós criamos um novo valor (um novo espaço na memória)
   }
 
+  console.log(`Estou sendo renderizado de novo pelo fato de mudarmos a variavel newCommentText: ${newCommentText}`)
 
   return (
     <article className={styles.post}>
@@ -106,10 +111,13 @@ export function Post({ author, publishedAt, content }) {
           value={newCommentText}
           onChange={handleNewCommentChange}
           required//validação do proprio html
+          onInvalid={handleNewCommentInvalid}
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" >Publicar</button> 
+          {/* <button type="submit" disabled={newCommentText.length==0}>Publicar</button>  */}
+          {/* disabled={newCommentText.length==0}  -> enquanto o usuário não escrever nada na caixa de texto o usuário não pode pressionar o botão */}
         </footer>
       </form>
 
