@@ -115,8 +115,7 @@ export function Post({ author, publishedAt, content }) {
         />
 
         <footer>
-          <button type="submit" >Publicar</button> 
-          {/* <button type="submit" disabled={newCommentText.length==0}>Publicar</button>  */}
+          <button type="submit" disabled={newCommentText.length==0}>Publicar</button> 
           {/* disabled={newCommentText.length==0}  -> enquanto o usuário não escrever nada na caixa de texto o usuário não pode pressionar o botão */}
         </footer>
       </form>
