@@ -11,7 +11,7 @@ import { useState } from 'react';
 export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState([
     'Post muito bacana, hein?!👏👏'
-// função para alterar a lista de comentarios --> ele atualiza a variavel e rederiza a tela
+// setComments : função para alterar a lista de comentarios --> ele atualiza a variavel e rederiza a tela
   ]);
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -20,7 +20,7 @@ export function Post({ author, publishedAt, content }) {
 
   const [newCommentText, setNewCommentText] = useState('');
 
-  function handleCrateNewComment() {
+  function handleCreateNewComment() {
     console.log(event.target)// retorna o gatilho que chamou o evento no caso o envio do formulario 
 
 
@@ -32,6 +32,7 @@ export function Post({ author, publishedAt, content }) {
     setComments([...comments, newCommentText]);// faço que comments = a uma lista com todos os elementos da lista comments + novo comentario
     // setComments([ 1, 2,3]);// faço que comments = [1,2,3]
     setNewCommentText('');
+    // event.target.comment.value = "";
     console.log(comments);
 
   }
@@ -52,6 +53,17 @@ export function Post({ author, publishedAt, content }) {
   function handleNewCommentChange() {
     setNewCommentText(event.target.value);
   }
+  function deleteComment(commentToDelete) {
+
+    console.log(`Deletar comentário ${commentToDelete}`)
+    const commentsWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete;
+    })
+
+    setComments(commentsWithoutDeletedOne);// imutabilidade -> as variaveis não sofrem mutação, nós criamos um novo valor (um novo espaço na memória)
+  }
+
+
   return (
     <article className={styles.post}>
       <header>
@@ -85,7 +97,7 @@ export function Post({ author, publishedAt, content }) {
           })}
       </div>
 
-      <form onSubmit={handleCrateNewComment} className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 {/* onClick - para botão */}
       <textarea
@@ -93,6 +105,7 @@ export function Post({ author, publishedAt, content }) {
           placeholder="Deixe um comentário"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          required//validação do proprio html
         />
 
         <footer>
@@ -104,9 +117,10 @@ export function Post({ author, publishedAt, content }) {
       {comments.map(comment => {
           return (
             <Comment
-              // key={comment}
+              key={comment}
+              // na hora de renderizar o componente ele só compara a lista antiga e nova e renderiza os componentes novos
               content={comment}
-              // onDeleteComment={deleteComment}
+              onDeleteComment={deleteComment}
             />
           )
         })}
