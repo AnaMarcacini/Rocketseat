@@ -68,7 +68,7 @@ export function Post({ author, publishedAt, content }) {
   }
 
   console.log(`Estou sendo renderizado de novo pelo fato de mudarmos a variavel newCommentText: ${newCommentText}`)
-
+  const isNewCommentEmpty = newCommentText.length==0
   return (
     <article className={styles.post}>
       <header>
@@ -115,7 +115,7 @@ export function Post({ author, publishedAt, content }) {
         />
 
         <footer>
-          <button type="submit" disabled={newCommentText.length==0}>Publicar</button> 
+          <button type="submit" disabled={isNewCommentEmpty}>Publicar</button> 
           {/* disabled={newCommentText.length==0}  -> enquanto o usuário não escrever nada na caixa de texto o usuário não pode pressionar o botão */}
         </footer>
       </form>
