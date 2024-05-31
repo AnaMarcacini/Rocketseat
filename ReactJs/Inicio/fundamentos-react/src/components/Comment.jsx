@@ -13,6 +13,41 @@ export function Comment({ content, onDeleteComment }) {
   }
   function handleLikeComment() {
     setLikeCount(likeCount + 1);
+    console.log(likeCount) // retorna zero não 1
+    setLikeCount(likeCount + 1);
+    //        Soma só um mesmo com 50 linhas de setLikeCount(likeCount + 1); pq?
+    // setLikeCount(likeCount + 1);
+    // setLikeCount(likeCount + 1);
+    // setLikeCount(likeCount + 1);
+    // setLikeCount(likeCount + 1);
+    // setLikeCount(likeCount + 1);
+
+
+    //como funciona o set do useState
+    // ele cria uma variavel externa como se fosse um componente
+
+
+    // exemplo::
+
+    // function Comment(props){
+    //   const [likes, setLikes] = useState(0)
+    //   function addLike(){
+    //     setLikes(likes+1);
+    //     setLikes(likes+1);
+    //   }
+    // }
+
+    // isso é como se eu fizesse 
+
+    // Comment(props,0) // eu tenho isso
+
+
+    // Comment(props,1) // transfomo nisso
+
+    // // porem quando chamo duas vezes seguidas o usestate ele pega sempre a primeira versão (desatualizada) assim ele fica fazendo a mesma conta (0+1) váraias vezes e retorna o resultado da ultima conta (1)
+
+
+
   }
   return (
     <div className={styles.comment}>
