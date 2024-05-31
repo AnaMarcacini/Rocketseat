@@ -40,6 +40,17 @@ export function Comment({ content, onDeleteComment }) {
 
         <footer>
           <button onClick={handleLikeComment}>
+            {/* CUIDADO
+          <button onClick={handleLikeComment}> -----> passando de parametro uma função --> tudo executa normalmente
+          <button onClick={handleLikeComment()}> -----> passando de parametro a execução de uma função --> isso faz com que o codigo execute imediatamente ao ler o codigo sem esperar o click no botão 
+                                                                                  |--> loop infinito 
+          <button onClick={ setLikeCount(likeCount + 1)}>   --> passa a execução de uma função --> dá loop infinito e gera uma serie de erros
+          <button onClick={() => setLikeCount(likeCount + 1)}> --> criando uma arrow function resolve o problema   ||| isso daqui :() => setLikeCount(likeCount + 1) se torna uma função que internamente possui uma execução de uma função
+
+          DICA 
+            CRIAR SEMPRE UMA FUNÇÃO DE HANDLE_X NO ONCLICK --> CODIGO MAIS LEGIVEL E MENOR MARGEM PARA ERROS  
+
+           */}
             <ThumbsUp />
             Aplaudir <span>{likeCount}</span>
           </button>
