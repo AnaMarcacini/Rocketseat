@@ -12,9 +12,14 @@ export function Comment({ content, onDeleteComment }) {
     console.log("deletar")
   }
   function handleLikeComment() {
-    setLikeCount(likeCount + 1);
-    console.log(likeCount) // retorna zero não 1
-    setLikeCount(likeCount + 1);
+
+    setLikeCount((newLikeCount)=>{return newLikeCount+1})
+
+            //CODIGO ANTIGO
+    // setLikeCount(likeCount + 1);
+    // console.log(likeCount) // retorna zero não 1
+    // setLikeCount(likeCount + 1);
+            //CODIGO ANTIGO
     //        Soma só um mesmo com 50 linhas de setLikeCount(likeCount + 1); pq?
     // setLikeCount(likeCount + 1);
     // setLikeCount(likeCount + 1);
@@ -45,8 +50,14 @@ export function Comment({ content, onDeleteComment }) {
     // Comment(props,1) // transfomo nisso
 
     // // porem quando chamo duas vezes seguidas o usestate ele pega sempre a primeira versão (desatualizada) assim ele fica fazendo a mesma conta (0+1) váraias vezes e retorna o resultado da ultima conta (1)
+    // maneiras de concertar
+              //Maneira 1
+    // const newLikeCount = likeCount+1
+    // setLikeCount(newLikeCount+1)
+              //Maneira 2
 
-
+    // setLikeCount((newLikeCount)=>{return likeCount+1})
+    // setLikeCount((newLikeCount)=>{return newLikeCount+1})
 
   }
   return (
